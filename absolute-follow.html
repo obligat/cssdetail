@@ -1,28 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>absolute follow</title>
-	<style type="text/css">
-		.box{
-			position: relative;
-			top: 100px;
-			left: 200px;
-			background-color: orange;
-			line-height: 3;
-			width: 600px;
-		}
-
-		.follow{
-			position: absolute;
-			line-height: normal;
-		}
-
-	</style>
+<meta charset="utf-8">
+<title>折翼天使表现特性二：位置跟随</title>
+<style>
+input[type=button] {
+    height: 32px;
+    font-size: 100%;
+}
+p { margin-left: 260px; }
+</style>
 </head>
+
 <body>
-	<div class="box">
-		迷途猫 人生自古谁无死 两千多去之前  dfjkej<span class="follow">何莉莉</span>
-	</div>
+	<img src="http://img.mukewang.com/54447b06000171a002560191.jpg">
+	<img src="http://img.mukewang.com/54447f4a0001eb7d01910256.jpg">
+<img src="http://img.mukewang.com/54447f550001ccb002560191.jpg">
+<p><input type="button" id="block" value="点击第2张图片应用display:block"></p>
+<p><input type="button" id="button" value="点击第2张图片应用position:absolute变天使"></p>
+<script>
+var block = document.getElementById("block"),
+    button = document.getElementById("button"),
+    image2 = document.getElementsByTagName("img")[1];
+if (block && button && image2) {
+    var value_init_button = button.value;
+	button.onclick = function() {
+		if (this.value == value_init_button) {
+			image2.style.position = "absolute";
+			this.value = "撤销";
+		} else {
+			image2.style.position = "";
+			this.value = value_init_button;
+		}
+	};
+	
+	var value_init_block = block.value;
+	block.onclick = function() {
+		if (this.value == value_init_block) {
+			image2.style.display = "block";
+			this.value = "撤销";
+		} else {
+			image2.style.display = "";
+			this.value = value_init_block;
+		}	
+	};
+}
+</script>
 </body>
 </html>
